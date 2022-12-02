@@ -1,0 +1,307 @@
+/* -------Header------- */
+
+.headerWrapper {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #333;
+    padding: 0 53px;
+}
+
+.headerHero {
+    width: 60%;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* ----location------ */
+.location {
+    display: flex;
+    align-items: center;
+    position: relative;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+
+.location:hover .locationModalItem {
+    display: block;
+}
+
+.locationTitle {
+    font-size: 13px;
+    font-weight: 500;
+    color: #fff;
+    margin-left: 0.2rem;
+}
+
+/* ----Location Modal------- */
+
+.locationModalItem {
+    width: 170px;
+    height: auto;
+    position: absolute;
+    top: 20px;
+    border-radius: 6px;
+    list-style-type: none;
+    box-shadow: 0 0 6px rgba(0, 0, 0, 0.2);
+    display: none;
+    background: #fff;
+    padding: 0.5rem 0;
+    z-index: 1;
+}
+
+.locationList {
+    width: 100%;
+    height: 2.2rem;
+    display: flex;
+    align-items: center;
+    padding: 0 0.8rem;
+}
+
+.locationList:hover {
+    background: #eee;
+}
+
+.locationList p {
+    font-size: 14px;
+}
+
+/* -------Header hero------ */
+.HeaderHeroText {
+    width: max-content;
+    cursor: pointer;
+}
+
+.HeaderHeroText p {
+    font-size: 13px;
+    color: #fff
+}
+
+.HeaderHerobg {
+    width: max-content;
+    border: 20px;
+    background: #555;
+    color: #fff;
+    padding: 4px;
+    font-size: 13px;
+    border-radius: 8px;
+}
+
+/* -----contact----- */
+.contact {
+    width: max-content;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+
+.contactPhone {
+    display: flex;
+    align-items: center;
+    margin-right: 22px;
+}
+
+.contactPhone p {
+    color: #fff;
+    font-size: 13px;
+    font-weight: 700;
+    margin-right: 9px;
+}
+
+.contactPhone span {
+    font-size: 18px;
+    font-weight: 600;
+    color: #fff;
+}
+
+/* ------langunge-------- */
+.langunge {
+    width: 70px;
+    height: 25px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    padding: 4px;
+    justify-content: space-between;
+    cursor: pointer;
+    position: relative;
+}
+
+.langunge p {
+    color: #fff;
+    font-size: 14px;
+}
+
+/* ------langunge Modal------ */
+.langunge:hover .langungeModal {
+    display: block;
+}
+
+.langungeModal {
+    width: 60px;
+    height: auto;
+    display: none;
+    top: 25px;
+    position: absolute;
+    background: white;
+    border-radius: 6px;
+    box-shadow: 0 0 6px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+}
+
+.langungeModal p {
+    color: #000;
+    line-height: 30px;
+    text-align: center;
+}
+
+.langungeModal p:hover {
+    background: #eee;
+}
+
+/* --------Nav Bar--------- */
+.navBar {
+    width: 100%;
+    height: 75px;
+    display: flex;
+    align-items: center;
+    gap: 50px;
+}
+
+/* -----Nav Search Bar-------- */
+.navSearchBar {
+    width: 48%;
+    height: 40px;
+    border-radius: 6px;
+    display: flex;
+    border: 2px solid #fbc100;
+    align-items: center;
+    background: linear-gradient(-45deg, #fbc100, #fff, #fff);
+    position: relative;
+}
+
+.navSearchBar input {
+    width: 90%;
+    height: 100%;
+    border: none;
+    outline: none;
+    padding-left: 10px;
+    font-size: 17px;
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+    background: #fff;
+}
+
+.selectBar {
+    width: max-content;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    background: rgba(0, 0, 0, 0.03);
+    border-radius: 6px;
+    margin-left: 2px;
+    position: relative;
+}
+
+.selectBar:hover .optionlist {
+    display: block;
+}
+
+/* -------select option ------ */
+.optionBar {
+    width: max-content;
+    cursor: pointer;
+}
+
+.optionBar .selecttext {
+    font-size: 12px;
+    margin-right: 10px;
+}
+
+.optionlist {
+    cursor: pointer;
+    width: 200px;
+    height: 300px;
+    overflow: auto;
+    position: absolute;
+    top: 36px;
+    left: 0;
+    border-radius: 2px;
+    box-shadow: 0 0 6px rgba(0, 0, 0, 0.2);
+    background: white;
+    padding: 10px 0;
+    display: none;
+    z-index: 1;
+}
+
+.optionlist::-webkit-scrollbar {
+    width: 6px;
+}
+
+.optionlist::-webkit-scrollbar-thumb {
+    background: #eee;
+}
+
+.optionlist div {
+    height: 40px;
+    display: flex;
+    align-items: center;
+    padding-left: 10px;
+}
+
+.optionlist div:hover {
+    background: #eee;
+}
+
+.optionlist p {
+    font-size: 13px;
+}
+
+/* ------search button-------- */
+
+.searchBtn {
+    width: 8%;
+    height: 100%;
+    outline: none;
+    cursor: pointer;
+    border-radius: 6px;
+    background: #fbd100;
+    position: relative;
+    border: none;
+    margin: 2px;
+    left: 3px;
+}
+
+.voiceIcon {
+    position: absolute;
+    right: 8%;
+    cursor: pointer;
+}
+
+/*---------Nav Navigator----------*/
+.NavNavigator {
+    width: 33%;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.NavNavigator div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.NavNavigator div p {
+    font-size: 14px;
+}

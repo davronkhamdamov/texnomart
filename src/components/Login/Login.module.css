@@ -1,0 +1,143 @@
+.login {
+    width: 500px;
+    height: auto;
+    background: transparent;
+    position: fixed;
+    top: 25%;
+    left: 50%;
+    transform: translate(-50%);
+    animation: top 0.2s ease-in;
+    background: #fff;
+    z-index: 9;
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+@keyframes top {
+    from {
+        top: 24%;
+    }
+}
+
+.view {
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    background: rgba(0, 0, 0, 0.6);
+    top: 0;
+    z-index: 1;
+}
+
+.loginItem {
+    width: 100%;
+    height: 60px;
+    background: #f3f3f3;
+    display: flex;
+}
+
+.loginhero {
+    width: max-content;
+    height: 60px;
+    padding: 20px;
+}
+
+.active {
+    background: white;
+}
+
+.closeBtn {
+    margin-left: auto;
+    width: 40px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+}
+
+.closeBtn button {
+    width: 30px;
+    height: 30px;
+    background: transparent;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: 50%;
+    font-size: 20px;
+    padding-top: 2px
+}
+
+.closeBtn button:active {
+    background: rgba(0, 0, 0, 0.09);
+}
+
+.loginList {
+    width: 100%;
+    height: 300px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    padding: 43px;
+}
+
+.signinItem {
+    width: 100%;
+    height: 400px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    padding: 43px;
+}
+
+.loginInputStyle {
+    position: relative;
+}
+
+.loginInput {
+    width: 100%;
+    height: 50px;
+    border-radius: 6px;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    font-size: 18px;
+}
+
+.loginInput:focus {
+    outline: 1px solid #fcc200;
+    border: 1px solid transparent;
+}
+
+.loginInput:focus~.loginlabel,
+.loginInput:valid~.loginlabel {
+    top: -10px;
+}
+
+.loginlabel {
+    width: max-content;
+    height: 11px;
+    background: white;
+    position: absolute;
+    top: 15px;
+    left: 10px;
+    transition: 0.2s;
+    padding: 0 8px;
+    color: #888;
+    font-size: 15px;
+    user-select: none;
+}
+
+.loginlabel span {
+    color: #fac200;
+}
+
+.submitBtn {
+    width: 100%;
+    height: 40px;
+    background: #fac200;
+    border: none;
+    outline: none;
+    border-radius: 6px;
+    font-size: 16px;
+}
+
+.submitBtn:active {
+    background: #fad100;
+}

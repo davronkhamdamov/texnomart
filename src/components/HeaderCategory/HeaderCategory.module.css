@@ -1,0 +1,66 @@
+.category {
+    width: 100%;
+    height: 60px;
+    display: flex;
+}
+
+
+.categoryItem {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.categoryList {
+    width: 88%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.catalogdropdawn {
+    width: max-content;
+    height: 45px;
+    background: #fcc200;
+    border-radius: 6px;
+    display: flex;
+    gap: 11px;
+    align-items: center;
+    padding: 0 17px;
+    user-select: none;
+}
+
+.catalogdropdawn img {
+    width: 25px;
+}
+
+.yellowFriday {
+    width: max-content;
+    height: 28px;
+    border-radius: 8px;
+    background: #000;
+    color: #fcc200;
+    padding: 0 10px 0 3px;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+
+.yellowFriday p {
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.action {
+    display: flex;
+    align-items: center;
+    text-transform: uppercase;
+    gap: 4px;
+}
+
+.categoryListItem p {
+    font-size: 14px;
+}
