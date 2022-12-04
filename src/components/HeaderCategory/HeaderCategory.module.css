@@ -2,6 +2,7 @@
     width: 100%;
     height: 60px;
     display: flex;
+    position: relative;
 }
 
 
@@ -63,4 +64,23 @@
 
 .categoryListItem p {
     font-size: 14px;
+}
+
+@media (max-width:1234px) {
+
+    .categoryListItem p,
+    .yellowFriday p,
+    .action p {
+        font-size: 12px;
+    }
+}
+
+@media (max-width:1040px) {
+    .category {
+        display: none;
+    }
+
+    .mobileApp {
+        display: flex;
+    }
 }

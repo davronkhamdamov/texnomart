@@ -2,9 +2,9 @@ import { useState } from 'react';
 import katalogIcon from '../../assets/images/catalog.svg';
 import closeIcon from '../../assets/images/close.svg';
 import lightIcon from '../../assets/images/svg.svg';
+import Category from '../Category/Category';
 import c from './HeaderCategory.module.css';
-const HeaderCategory = () => {
-  const [isCatalogOpen, setIsCatalogOpen] = useState(false);
+const HeaderCategory = ({ isCatalogOpen, setIsCatalogOpen }) => {
   return (
     <div className={c.category}>
       <div className={c.categoryItem}>
@@ -47,6 +47,7 @@ const HeaderCategory = () => {
           </div>
         </div>
       </div>
+      {isCatalogOpen && <Category />}
     </div>
   );
 };

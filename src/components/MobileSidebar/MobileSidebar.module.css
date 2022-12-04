@@ -1,0 +1,21 @@
+.IsMobileOpen,
+.IsMobileClose {
+    width: 70%;
+    height: 100vh;
+    background: white;
+    box-shadow: 0 0 10px black;
+    position: fixed;
+    top: 0;
+    left: -100%;
+    transition: 0.5s;
+    z-index: 99;
+}
+
+.view {
+    width: 100%;
+    height: 100vh;
+    top: 0;
+    position: fixed;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 98;
+}

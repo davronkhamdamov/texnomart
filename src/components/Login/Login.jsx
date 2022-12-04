@@ -57,18 +57,18 @@ const Login = ({ loginOpen }) => {
             <div className={c.loginInputStyle}>
               <input required type="text" id="login" className={c.loginInput} />
               <label className={c.loginlabel} htmlFor="login">
-                Ismingiz <span>*</span>
+                Username <span>*</span>
               </label>
             </div>
             <div className={c.loginInputStyle}>
               <input
                 required
-                type="password"
+                type="text"
                 id="password"
                 className={c.loginInput}
               />
               <label className={c.loginlabel} htmlFor="password">
-                Username <span>*</span>
+                Email <span>*</span>
               </label>
             </div>
             <div className={c.loginInputStyle}>

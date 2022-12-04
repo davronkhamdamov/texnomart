@@ -3,7 +3,9 @@ import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { Container } from '../../utils/index';
 import HeroSlider from '../HeroSlider/HeroSlider';
-import {} from '../../';
+import App from '../App/App';
+import Service from '../Servise/Service';
+import MobileApp from '../MobileApp/MobileApp';
 const Main = () => {
   const [mainData, setMainData] = useState([]);
   const [filterData, setFilterdata] = useState([]);
@@ -21,8 +23,12 @@ const Main = () => {
   }, [mainData]);
   return (
     <div>
+      <MobileApp />
       <HeroSlider />
-      <Container></Container>
+      <Container>
+        <App />
+        <Service />
+      </Container>
     </div>
   );
 };

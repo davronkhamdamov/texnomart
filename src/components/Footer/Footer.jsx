@@ -1,9 +1,53 @@
 import c from './Footer.module.css';
 import footerData from '../../json/footer.json';
+import dawn from '../../assets/images/dawn.svg';
 import { v4 as uuidv4 } from 'uuid';
+import { useState } from 'react';
 const Footer = () => {
+  const [isHiddenText, setIsHiddenOpen] = useState(null);
+  const hiddenText = (e) => {
+    setIsHiddenOpen(e?.target?.id);
+  };
   return (
     <footer>
+      <div className={c.mobileFooterItem}>
+        {footerData.map((el, i) => {
+          return (
+            <div
+              style={{ height: `${isHiddenText == el.id ? 'auto' : '50px'}` }}
+              className={c.mobilehide}
+              key={uuidv4()}
+            >
+              <div
+                id={i}
+                onClick={(e) => {
+                  hiddenText(e);
+                }}
+                className={c.mobileFooterList}
+              >
+                <p>{el.title}</p>
+                <img
+                  style={{
+                    transform: `rotate(${
+                      isHiddenText == el.id ? '180deg' : '0deg'
+                    })`,
+                  }}
+                  src={dawn}
+                  alt=""
+                />
+              </div>
+              {el.text.map((e) => {
+                return (
+                  <div key={uuidv4()} className={c.mobileHiddenText}>
+                    <p>{e}</p>
+                  </div>
+                );
+              })}
+            </div>
+          );
+        })}
+      </div>
+      <div className={c.mobileFooterHr}></div>
       <div className={c.footerwrapper}>
         <div className={c.footerItem}>
           <p className={c.footerTxt}>Savolingiz bormi? Qo'ng'iroq qiling</p>
@@ -57,6 +101,20 @@ const Footer = () => {
               </div>
             );
           })}
+        </div>
+      </div>
+      <div className={c.mobileFooterHr}></div>
+      <div className={c.mobilePayment}>
+        <p>Quyidagi to'lovalrni qabul qilamiz</p>
+        <div className={c.payment}>
+          <img
+            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADwAAAAcCAYAAAA9UNxEAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAKXSURBVHgB7ZldSFNhGMf/5pxu6NiWS9FZXkSDUsqosQsF66JCYmAEFhFSSd0lBELdFV30cTm6qS5c3UTQbjJiRs1laR9i2lppa8XKbW3i3Kfbcl+9x2A0FtVFzxrbfvDCec77cOB/nvd5zvO+pyyVSjUDGGSjE4XNNBvdZUzwFLvYguLAyAlOoYhYhSKDB0K0unG8nrGn7TqZCKdP7MnwuXhVj5O9O4HhM0BiGTx5G/jKo6CCVLDh2SxGJ6xpWyatyRJ8z2BCp3IDWgIuxD8akfQ7SQXnxZK+wKLM67qE8tr1oCYvBHPLXn1Kh1fK60ipr4CSvClaFpsbvQNaHDs3BEpKVTrXHNi7HYFQNG3L6yWg5L8LFlTxEYsn07awkg9KiAWX/dFj8M4Y7C5f2lZtbsb+rq2ggjSHBVUVGfZyLJ7lE4nGMuxyXjkoIRXMNRo/4w9GYLY407bN7oHHt5Th01QvBSWkglsVjVn3zmqG8Nm5COe8H/3nb2fNb2tdB0pId0tc9W3vuZxRhX+HRCTEsLYfa1bXgArSCIuqq3BIrfxr/+MHO0jFcpDvh7nHa24YoLk5gkQi+UufSj4PfT3tGOjbBWpydgBgd3mh009hwmSDayGAeDyBtQ1StG1swuF9KtSKq5ELSice/xKrbR4O1lQsLIZw95EJSfZuX7AIc42GxxuCzeFBKPwND8dnWbeVwOOXH1bmRp6/BxWkgifffsGDsXcQs+obCEVW8tnyycVmUnhjceDarSfw+sO4bzTDHwgjwL7T+lEzdqgUoIJ0Sc999SLIIiivE+PppBW7OzbBNDOHRrZBCC5FUcG6KqGADzfLae7a4fahRdEAmYSuUpdyuNDhBBtRPExzgo/gx2+IQsfIRvd3aYsETCPHV5cAAAAASUVORK5CYII="
+            alt=""
+          />
+          <img src="https://texnomart.uz/_nuxt/img/alif.6e1bcde.png" alt="" />
+          <img src="https://texnomart.uz/_nuxt/img/intend.81957d2.png" alt="" />
+          <img src="https://texnomart.uz/_nuxt/img/ofb.b3ef2cd.png" alt="" />
+          <img src="https://texnomart.uz/_nuxt/img/payme.677630d.png" alt="" />
         </div>
       </div>
       <div className={c.footerHr}></div>

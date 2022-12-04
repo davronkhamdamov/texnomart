@@ -1,8 +1,8 @@
 footer {
     width: 100%;
-    height: 470px;
+    height: auto;
     background: #333;
-    padding: 50px 50px;
+    padding: 50px 50px 0;
 }
 
 .footerwrapper {
@@ -14,7 +14,7 @@ footer {
 }
 
 .footerItem {
-    width: 20%;
+    width: 25%;
 }
 
 .footerTxt {
@@ -25,8 +25,8 @@ footer {
 .footerphone {
     font-size: 28px;
     color: white;
-    line-height: 60px;
     font-weight: 500;
+    margin: 10px 0;
 }
 
 .footerTitle {
@@ -48,8 +48,7 @@ footer {
 .footerList {
     width: 78%;
     display: flex;
-    gap: 200px;
-    justify-content: center;
+    justify-content: space-around;
 }
 
 .socialMedia {
@@ -80,6 +79,7 @@ footer {
     border-bottom: 2px solid white;
 }
 
+.mobileFooterHr,
 .footerHr {
     width: 100%;
     height: 1px;
@@ -104,4 +104,114 @@ footer {
     display: flex;
     gap: 8px;
     margin-right: 10px;
+}
+
+.mobilePayment {
+    width: 100%;
+    height: auto;
+    gap: 10px;
+    display: none;
+    justify-content: center;
+    flex-direction: column;
+    padding: 20px 0;
+}
+
+.mobileFooterItem {
+    display: none;
+}
+
+.mobilePayment .payment {
+    flex-wrap: wrap;
+}
+
+.mobilePayment p {
+    color: #eee;
+    font-size: 14px;
+}
+
+.mobileFooterHr {
+    display: none;
+}
+
+.mobilehide {
+    height: 30px;
+    overflow: hidden;
+    margin: 10px 0;
+}
+
+.mobileHiddenText {
+    width: 100%;
+    height: 40px;
+    display: flex;
+    align-items: center;
+}
+
+.mobileHiddenText p {
+    color: #eee;
+    font-size: 13px;
+}
+
+.mobileFooterList {
+    width: 100%;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.mobileFooterList p {
+    color: #eee;
+    font-weight: 700;
+}
+
+@media (max-width:1067px) {
+    .footerphone {
+        font-size: 26px;
+    }
+}
+
+@media (max-width:1026px) {
+    footer {
+        padding: 20px 10px;
+    }
+
+    .footerwrapper {
+        margin-top: 20px;
+    }
+
+    .footerphone {
+        font-size: 18px;
+    }
+
+    .mobilePayment {
+        display: flex;
+    }
+
+    .footerinfo .payment,
+    .footerList {
+        display: none;
+    }
+
+    .footerinfo p {
+        width: 100%;
+        text-align: center;
+    }
+
+    .footerinfo {
+        padding: 20px 0;
+    }
+
+    .footerItem {
+        width: 100%;
+    }
+
+    .mobileFooterItem {
+        display: block;
+        margin: 20px 0;
+    }
+
+    .mobileFooterHr {
+        display: block;
+    }
 }

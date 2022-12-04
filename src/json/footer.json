@@ -1,5 +1,6 @@
 [
   {
+    "id": 0,
     "title": "Kompaniya",
     "text": [
       "B2B savdosi",
@@ -9,6 +10,7 @@
     ]
   },
   {
+    "id": 1,
     "title": "Ma'lumot",
     "text": [
       "Bepul yetkazib berish",
@@ -19,6 +21,7 @@
     ]
   },
   {
+    "id": 2,
     "title": "Haridorga yordam",
     "text": [
       "Muddatli to'lovga sotib olish",

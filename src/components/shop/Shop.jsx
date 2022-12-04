@@ -1,5 +1,6 @@
 import c from './Shop.module.css';
 import { IoCloseOutline } from 'react-icons/io5';
+import { Link } from 'react-router-dom';
 const Shop = ({ shopOpen }) => {
   return (
     <>
@@ -34,7 +35,9 @@ const Shop = ({ shopOpen }) => {
             ></path>
           </svg>
           <p>Savatchada xozirda hech nima yo'q</p>
-          <button className={c.emptyCardBtn}>Xarid qilish</button>
+          <Link to="/" className={c.emptyCardBtn}>
+            Xarid qilish
+          </Link>
         </div>
       </div>
       <div onClick={() => shopOpen(false)} className={c.view}></div>

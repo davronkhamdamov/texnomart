@@ -1,5 +1,6 @@
 import c from './Header.module.css';
 import location from '../../assets/images/location.svg';
+import darklocation from '../../assets/images/darkLocation.svg';
 import world from '../../assets/images/world.svg';
 import dawn from '../../assets/images/dawn.svg';
 import texnomartLogo from '../../assets/images/texnomart-logo.svg';
@@ -11,10 +12,16 @@ import loginIcon from '../../assets/images/login.svg';
 import taqqoslaIcon from '../../assets/images/taqqoslash.svg';
 import sevimliIcon from '../../assets/images/sevimlilar.svg';
 import shopIcon from '../../assets/images/shop.svg';
+import darkphoneIcon from '../../assets/images/headerDarkIcon.svg';
+import phoneIcon from '../../assets/images/header-phone.79fbca0.svg';
 import Shop from '../shop/Shop';
 import { Container } from '../../utils/index';
 import Login from '../Login/Login';
 import HeaderCategory from '../HeaderCategory/HeaderCategory';
+import MobileSidebar from '../MobileSidebar/MobileSidebar';
+import { HiOutlineMenuAlt1 } from 'react-icons/hi';
+import MobileNavbar from '../MobileBottomNavbar/MobileNavbar';
+
 const Header = () => {
   const initianalRegionValue = 'Toshkent';
   const initianalValue = 'Barcha kategoriyalar';
@@ -24,6 +31,8 @@ const Header = () => {
   const [changeRegionValue, setChangeRegionValue] =
     useState(initianalRegionValue);
   const [changeSelect, setChangeSelect] = useState(initianalValue);
+  const [isCatalogOpen, setIsCatalogOpen] = useState(false);
+  const [isMobileOpen, setIsMobileOpen] = useState(false);
   const changeValue = (e) => {
     setChangeSelect(e.target.textContent);
   };
@@ -44,7 +53,8 @@ const Header = () => {
       <div className={c.headerWrapper}>
         <div className={c.headerHero}>
           <div className={c.location}>
-            <img src={location} alt="" />
+            <img className={c.lightmode} src={location} alt="" />
+            <img className={c.darkmode} src={darklocation} alt="" />
             <p className={c.locationTitle}> {changeRegionValue}</p>
             <ul className={c.locationModalItem}>
               <li onClick={(e) => changeRegion(e)} className={c.locationList}>
@@ -70,6 +80,7 @@ const Header = () => {
               </li>
             </ul>
           </div>
+          <img className={c.mobileImg} src={texnomartLogo} alt="" />
           <div className={c.HeaderHeroText}>
             <p>Bizning do'konlarimiz</p>
           </div>
@@ -89,7 +100,37 @@ const Header = () => {
         <div className={c.contact}>
           <div className={c.contactPhone}>
             <p>Aloqa markazi : </p>
+            <img className={c.darkmodePhone} src={darkphoneIcon} alt="" />
+            <img className={c.lightmodePhone} src={phoneIcon} alt="" />
             <span> +99871 209 99 44</span>
+          </div>
+          <div className={c.mobileLocation}>
+            <img className={c.lightmode} src={location} alt="" />
+            <img className={c.darkmode} src={darklocation} alt="" />
+            <p className={c.locationTitle}> {changeRegionValue}</p>
+            <ul className={c.MobilelocationModalItem}>
+              <li onClick={(e) => changeRegion(e)} className={c.locationList}>
+                <p>Toshkent</p>
+              </li>
+              <li onClick={(e) => changeRegion(e)} className={c.locationList}>
+                <p>Toshkent viloyati</p>
+              </li>
+              <li onClick={(e) => changeRegion(e)} className={c.locationList}>
+                <p>Buxoro viloyati</p>
+              </li>
+              <li onClick={(e) => changeRegion(e)} className={c.locationList}>
+                <p>Farg'ona viloyati</p>
+              </li>
+              <li onClick={(e) => changeRegion(e)} className={c.locationList}>
+                <p>Andijon viloyati</p>
+              </li>
+              <li onClick={(e) => changeRegion(e)} className={c.locationList}>
+                <p>Namangan viloyati</p>
+              </li>
+              <li onClick={(e) => changeRegion(e)} className={c.locationList}>
+                <p>Samarqand viloyati</p>
+              </li>
+            </ul>
           </div>
           <div className={c.langunge}>
             <img src={world} alt="" />
@@ -105,7 +146,7 @@ const Header = () => {
       <Container>
         <nav>
           <div className={c.navBar}>
-            <img src={texnomartLogo} alt="" />
+            <img className={c.navBarimg} src={texnomartLogo} alt="" />
             <div className={c.navSearchBar}>
               <div className={c.selectBar}>
                 <div className={c.optionBar}>
@@ -176,17 +217,39 @@ const Header = () => {
                 <img src={sevimliIcon} alt="" />
                 <p>Sevimlilar</p>
               </div>
-              <div onClick={ShopOpenfunc}>
+              <div className={c.shopOption} onClick={ShopOpenfunc}>
                 <img src={shopIcon} alt="" />
+                <span className={c.shopCount}>0</span>
                 <p>Savatcha</p>
               </div>
             </div>
           </div>
+          <div className={c.mobileNavbar}>
+            <button onClick={() => setIsMobileOpen(true)}>
+              <HiOutlineMenuAlt1 className={c.mobilemenu} />
+            </button>
+            <input type="text" />
+            <img className={c.voiceIcon} src={voiceicon} alt="" />
+          </div>
         </nav>
-        <HeaderCategory />
+        <HeaderCategory
+          isCatalogOpen={isCatalogOpen}
+          setIsCatalogOpen={setIsCatalogOpen}
+        />
       </Container>
+      {isCatalogOpen && (
+        <div
+          onClick={() => setIsCatalogOpen(false)}
+          className={c.owerlay}
+        ></div>
+      )}
       {shopOpen && <Shop shopOpen={setShopOpen} />}
       {loginOpen && <Login loginOpen={setLoginOpen} />}
+      <MobileSidebar
+        IsMobileOpen={isMobileOpen}
+        setIsMobileOpen={setIsMobileOpen}
+      />
+      <MobileNavbar loginOpen={setLoginOpen} shopOpen={setShopOpen} />
     </header>
   );
 };

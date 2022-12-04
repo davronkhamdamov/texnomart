@@ -10,15 +10,18 @@
 }
 
 .headerHero {
-    width: 60%;
+    max-width: 900px;
     height: 35px;
+    width: 100%;
     display: flex;
     align-items: center;
     justify-content: space-between;
+    gap: 10px;
 }
 
 /* ----location------ */
-.location {
+.location,
+.mobileLocation {
     display: flex;
     align-items: center;
     position: relative;
@@ -27,7 +30,8 @@
 }
 
 
-.location:hover .locationModalItem {
+.location:hover .locationModalItem,
+.mobileLocation:hover .MobilelocationModalItem {
     display: block;
 }
 
@@ -40,7 +44,8 @@
 
 /* ----Location Modal------- */
 
-.locationModalItem {
+.locationModalItem,
+.MobilelocationModalItem {
     width: 170px;
     height: auto;
     position: absolute;
@@ -51,7 +56,11 @@
     display: none;
     background: #fff;
     padding: 0.5rem 0;
-    z-index: 1;
+    z-index: 7;
+}
+
+.MobilelocationModalItem {
+    right: 0;
 }
 
 .locationList {
@@ -68,6 +77,14 @@
 
 .locationList p {
     font-size: 14px;
+}
+
+.darkmode,
+.darkmodePhone,
+.mobileLocation,
+.mobileImg {
+    opacity: 0;
+    display: none;
 }
 
 /* -------Header hero------ */
@@ -93,9 +110,11 @@
 
 /* -----contact----- */
 .contact {
-    width: max-content;
+    max-width: 400px;
+    width: 100%;
     display: flex;
     align-items: center;
+    justify-content: flex-end;
     cursor: pointer;
 }
 
@@ -104,6 +123,7 @@
     display: flex;
     align-items: center;
     margin-right: 22px;
+    gap: 10px;
 }
 
 .contactPhone p {
@@ -111,6 +131,10 @@
     font-size: 13px;
     font-weight: 700;
     margin-right: 9px;
+}
+
+.contactPhone img {
+    display: none;
 }
 
 .contactPhone span {
@@ -153,6 +177,7 @@
     border-radius: 6px;
     box-shadow: 0 0 6px rgba(0, 0, 0, 0.2);
     overflow: hidden;
+    z-index: 4;
 }
 
 .langungeModal p {
@@ -238,7 +263,7 @@
     background: white;
     padding: 10px 0;
     display: none;
-    z-index: 1;
+    z-index: 5;
 }
 
 .optionlist::-webkit-scrollbar {
@@ -304,4 +329,171 @@
 
 .NavNavigator div p {
     font-size: 14px;
+}
+
+.owerlay {
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    top: 0;
+    z-index: 2;
+}
+
+.shopOption {
+    position: relative;
+}
+
+.shopCount {
+    width: 15px;
+    height: 15px;
+    text-align: center;
+    border-radius: 50%;
+    background: #fbc100;
+    position: absolute;
+    top: 0;
+    right: 15%;
+    font-size: 13px;
+}
+
+.mobileNavbar {
+    width: 100%;
+    height: 60px;
+    display: none;
+    align-items: center;
+    gap: 10px;
+    position: relative;
+}
+
+.mobileNavbar input {
+    width: 94%;
+    height: 35px;
+    border-radius: 8px;
+    border: 2px solid #fbc100;
+    outline: none;
+    padding: 10px;
+    font-size: 16px;
+}
+
+.mobileNavbar img {
+    position: absolute;
+    right: 2%;
+}
+
+.mobileNavbar button {
+    width: 35px;
+    height: 35px;
+    border: none;
+    outline: none;
+    background: #fbb100;
+    border-radius: 8px;
+}
+
+.mobilemenu {
+    font-size: 25px;
+    margin-top: 2px;
+}
+
+@media (max-width:1234px) {
+    .navBarimg {
+        width: 200px;
+    }
+
+    .location {
+        display: flex;
+    }
+
+    .HeaderHerobg {
+        background: transparent;
+    }
+
+    .contactPhone p {
+        font-size: 16px;
+    }
+
+    .HeaderHeroText p {
+        font-size: 12px;
+    }
+
+    .contact {
+        max-width: 60%;
+    }
+
+    .contactPhone p {
+        display: none;
+    }
+
+    .contactPhone img {
+        display: block;
+    }
+
+    .contactPhone span {
+        font-size: 14px;
+    }
+
+    .NavNavigator p {
+        display: none;
+    }
+}
+
+@media (max-width:1040px) {
+
+    .HeaderHerobg,
+    .langunge,
+    .HeaderHeroText,
+    .contactPhone img+img,
+    .lightmode,
+    .navBar {
+        display: none;
+    }
+
+    .darkmode,
+    .darkmodePhone {
+        opacity: 1;
+        display: block;
+    }
+
+
+    .headerWrapper {
+        padding: 8px 0 0 20px;
+        margin: 0 auto;
+        background: white;
+        justify-content: space-between;
+    }
+
+    .locationTitle {
+        color: #000;
+    }
+
+    .contact {
+        width: 70%;
+    }
+
+    .contactPhone span {
+        color: black;
+        font-weight: 400;
+    }
+
+    .mobileImg {
+        opacity: 1;
+        display: block;
+        width: 150px;
+    }
+
+    .mobileNavbar {
+        display: flex;
+    }
+}
+
+@media (max-width:750px) {
+
+    .mobileLocation {
+        opacity: 1;
+        display: flex;
+    }
+
+    .location,
+    .contactPhone span,
+    .contactPhone img+img {
+        display: none;
+    }
 }
