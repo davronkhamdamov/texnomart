@@ -6,6 +6,7 @@ import HeroSlider from '../HeroSlider/HeroSlider';
 import App from '../App/App';
 import Service from '../Servise/Service';
 import MobileApp from '../MobileApp/MobileApp';
+import MainSlider from '../MainSlider/MainSlider';
 const Main = () => {
   const [mainData, setMainData] = useState([]);
   const [filterData, setFilterdata] = useState([]);
@@ -26,6 +27,7 @@ const Main = () => {
       <MobileApp />
       <HeroSlider />
       <Container>
+        <MainSlider />
         <App />
         <Service />
       </Container>
