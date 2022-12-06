@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import katalogIcon from '../../assets/images/catalog.svg';
 import closeIcon from '../../assets/images/close.svg';
 import lightIcon from '../../assets/images/svg.svg';

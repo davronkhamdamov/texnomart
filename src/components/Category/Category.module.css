@@ -9,6 +9,8 @@
     border-radius: 10px;
     animation: bottom 0.2s ease-in forwards;
     opacity: 0;
+    display: flex;
+    gap: 10px;
 }
 
 @keyframes bottom {
@@ -20,4 +22,87 @@
     to {
         opacity: 1;
     }
+}
+
+.categoryNavigator {
+    width: 20%;
+    overflow: auto;
+    margin: 10px 5px;
+}
+
+.categorynavbar {
+    width: 100%;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 0 20px;
+    border-radius: 8px;
+}
+
+.categoryNavigator::-webkit-scrollbar {
+    width: 6px;
+    background: #eee;
+}
+
+.categoryNavigator::-webkit-scrollbar-thumb {
+    border-radius: 4px;
+    background: #aaa;
+}
+
+.categorynavbar:hover {
+    background: #fcc900;
+}
+
+.categorynavbar p {
+    font-size: 14px;
+}
+
+.rigthIcon {
+    margin-left: auto;
+    transform: rotate(-90deg);
+}
+
+.categoryList {
+    color: black;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 50px;
+    margin-top: 20px;
+    justify-content: space-around;
+}
+
+.categorytextWrap {
+    display: grid;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.categoryText {
+    width: max-content;
+    font-size: 14px;
+    color: #999;
+    cursor: pointer;
+    border: 1px solid transparent;
+}
+
+.categoryText:hover {
+    text-decoration: dotted;
+    border-bottom: 1px dashed black;
+}
+
+
+.wrapper {
+    width: 80%;
+    padding: 20px;
+    overflow: auto;
+}
+
+.wrapper::-webkit-scrollbar {
+    width: 8px;
+}
+
+.wrapper::-webkit-scrollbar-thumb {
+    background: #ccc;
+    border-radius: 4px;
 }

@@ -1,9 +1,33 @@
 import { useState } from 'react';
 import c from './Login.module.css';
 import { IoCloseOutline } from 'react-icons/io5';
-
+import auth from '../../firebase/config';
 const Login = ({ loginOpen }) => {
   const [loginSelect, setLoginSelect] = useState(true);
+  const [checkUserCreate, setCheckUserCreate] = useState(false);
+  const [checkUserLogin, setCheckUserLogin] = useState(false);
+  const [mail, setMail] = useState('');
+  const [password, setPassword] = useState('');
+
+  const signupUser = (e) => {
+    e.preventDefault();
+    auth.createUserWithEmailAndPassword(mail, password).then((res) => {
+      if (res.additionalUserInfo.isNewUser) {
+        setCheckUserCreate(true);
+      }
+    });
+  };
+  const loginUser = (e) => {
+    e.preventDefault();
+    auth
+      .signInWithEmailAndPassword(mail, password)
+      .then((res) => {
+        if (!res.additionalUserInfo.isNewUser) {
+          setCheckUserLogin(true);
+        }
+      })
+      .catch((err) => console.log(err));
+  };
   return (
     <>
       <div className={c.login}>
@@ -31,15 +55,22 @@ const Login = ({ loginOpen }) => {
           </div>
         </div>
         {loginSelect && (
-          <form className={c.loginList}>
+          <form onSubmit={loginUser} className={c.loginList}>
             <div className={c.loginInputStyle}>
-              <input required type="text" id="login" className={c.loginInput} />
+              <input
+                required
+                type="text"
+                id="login"
+                onChange={(e) => setMail(e.target.value)}
+                className={c.loginInput}
+              />
               <label className={c.loginlabel} htmlFor="login">
                 Login <span>*</span>
               </label>
             </div>
             <div className={c.loginInputStyle}>
               <input
+                onChange={(e) => setPassword(e.target.value)}
                 required
                 type="password"
                 id="password"
@@ -49,11 +80,13 @@ const Login = ({ loginOpen }) => {
                 Parol <span>*</span>
               </label>
             </div>
-            <button className={c.submitBtn}>Login orqali kirish</button>
+            <button className={c.submitBtn}>
+              {checkUserLogin ? '✅' : 'Login orqali kirish'}
+            </button>
           </form>
         )}
         {!loginSelect && (
-          <form className={c.signinItem}>
+          <form onSubmit={signupUser} className={c.signinItem}>
             <div className={c.loginInputStyle}>
               <input required type="text" id="login" className={c.loginInput} />
               <label className={c.loginlabel} htmlFor="login">
@@ -62,6 +95,7 @@ const Login = ({ loginOpen }) => {
             </div>
             <div className={c.loginInputStyle}>
               <input
+                onChange={(e) => setMail(e.target.value)}
                 required
                 type="text"
                 id="password"
@@ -73,6 +107,7 @@ const Login = ({ loginOpen }) => {
             </div>
             <div className={c.loginInputStyle}>
               <input
+                onChange={(e) => setPassword(e.target.value)}
                 required
                 type="password"
                 id="password"
@@ -82,7 +117,9 @@ const Login = ({ loginOpen }) => {
                 Parol <span>*</span>
               </label>
             </div>
-            <button className={c.submitBtn}>Login orqali kirish</button>
+            <button className={c.submitBtn}>
+              {checkUserCreate ? '✅' : 'Login orqali kirish'}
+            </button>
           </form>
         )}
       </div>
