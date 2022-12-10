@@ -3,8 +3,12 @@ import { useState, useEffect, useRef } from 'react';
 import shop from '../../assets/images/shop.svg';
 import navigator from '../../assets/images/left.svg';
 import { v4 as uuidv4 } from 'uuid';
+import { useDispatch } from 'react-redux';
+import { newItemAction } from '../../redux/reduser';
 
 const Laptops = ({ mainData }) => {
+  const dispatch = useDispatch();
+
   const categories = useRef();
   const [filterData, setFilterdata] = useState([]);
   const [imgCount, setImgCount] = useState(0);
@@ -21,7 +25,7 @@ const Laptops = ({ mainData }) => {
   };
 
   useEffect(() => {
-    let filter = mainData.filter((el) => el.productCategory === 'laptops');
+    let filter = mainData?.filter((el) => el.productCategory === 'laptops');
     setFilterdata(filter);
   }, [mainData]);
   return (
@@ -41,7 +45,10 @@ const Laptops = ({ mainData }) => {
               <div className={c.categoryDes}>
                 <p>{el.price} $</p>
                 <div className={c.btnGroup}>
-                  <button className={c.shopBtn}>
+                  <button
+                    onClick={() => dispatch(newItemAction(el))}
+                    className={c.shopBtn}
+                  >
                     <img src={shop} alt="" />
                     Savatchaga
                   </button>

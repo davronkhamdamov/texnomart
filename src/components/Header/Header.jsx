@@ -21,11 +21,13 @@ import HeaderCategory from '../HeaderCategory/HeaderCategory';
 import MobileSidebar from '../MobileSidebar/MobileSidebar';
 import { HiOutlineMenuAlt1 } from 'react-icons/hi';
 import MobileNavbar from '../MobileBottomNavbar/MobileNavbar';
+import { useSelector } from 'react-redux';
+import { useTranslation } from 'react-i18next';
 
 const Header = () => {
-  const initianalRegionValue = 'Toshkent';
-  const initianalValue = 'Barcha kategoriyalar';
-  const [changeLanguagevalue, setChangeLanguageValue] = useState("O'Z");
+  const { t, i18n } = useTranslation();
+  const initianalRegionValue = 'toshkent';
+  const initianalValue = 'allCatagory';
   const [shopOpen, setShopOpen] = useState(false);
   const [loginOpen, setLoginOpen] = useState(false);
   const [changeRegionValue, setChangeRegionValue] =
@@ -33,6 +35,8 @@ const Header = () => {
   const [changeSelect, setChangeSelect] = useState(initianalValue);
   const [isCatalogOpen, setIsCatalogOpen] = useState(false);
   const [isMobileOpen, setIsMobileOpen] = useState(false);
+  const [changeLanguagevalue, setChangeLanguageValue] = useState('UZ');
+  const data = useSelector((data) => data.data);
   const changeValue = (e) => {
     setChangeSelect(e.target.textContent);
   };
@@ -48,6 +52,10 @@ const Header = () => {
   const loginOpenfunc = () => {
     setLoginOpen(true);
   };
+  const [scrollTopCheck, setScrollTopCheck] = useState(false);
+  window.addEventListener('scroll', () => {
+    setScrollTopCheck(window.scrollY > 90);
+  });
   return (
     <header>
       <div className={c.headerWrapper}>
@@ -55,51 +63,51 @@ const Header = () => {
           <div className={c.location}>
             <img className={c.lightmode} src={location} alt="" />
             <img className={c.darkmode} src={darklocation} alt="" />
-            <p className={c.locationTitle}> {changeRegionValue}</p>
+            <p className={c.locationTitle}> {t(changeRegionValue)}</p>
             <ul className={c.locationModalItem}>
               <li onClick={(e) => changeRegion(e)} className={c.locationList}>
-                <p>Toshkent</p>
+                <p>{t('toshkent')}</p>
               </li>
               <li onClick={(e) => changeRegion(e)} className={c.locationList}>
-                <p>Toshkent viloyati</p>
+                <p>{t('toshkentViloyati')}</p>
               </li>
               <li onClick={(e) => changeRegion(e)} className={c.locationList}>
-                <p>Buxoro viloyati</p>
+                <p>{t('Buxoro')}</p>
               </li>
               <li onClick={(e) => changeRegion(e)} className={c.locationList}>
-                <p>Farg'ona viloyati</p>
+                <p>{t('Fargana')}</p>
               </li>
               <li onClick={(e) => changeRegion(e)} className={c.locationList}>
-                <p>Andijon viloyati</p>
+                <p>{t('Andijon')}</p>
               </li>
               <li onClick={(e) => changeRegion(e)} className={c.locationList}>
-                <p>Namangan viloyati</p>
+                <p>{t('Namangan')}</p>
               </li>
               <li onClick={(e) => changeRegion(e)} className={c.locationList}>
-                <p>Samarqand viloyati</p>
+                <p>{t('Samarqand')}</p>
               </li>
             </ul>
           </div>
           <img className={c.mobileImg} src={texnomartLogo} alt="" />
           <div className={c.HeaderHeroText}>
-            <p>Bizning do'konlarimiz</p>
+            <p>{t('weShop')}</p>
           </div>
           <div className={c.HeaderHerobg}>
-            <p>B2B savdosi</p>
+            <p>{t('B2B')}</p>
           </div>
           <div className={c.HeaderHeroText}>
-            <p>Muddatli to'lovga sotib olish</p>
+            <p>{t('kredit')}</p>
           </div>
           <div className={c.HeaderHeroText}>
-            <p>To'lov usullari</p>
+            <p>{t('PaymentMethod')}</p>
           </div>
           <div className={c.HeaderHeroText}>
-            <p>Mahsulotlar uchun kafolat</p>
+            <p>{t('security')}</p>
           </div>
         </div>
         <div className={c.contact}>
           <div className={c.contactPhone}>
-            <p>Aloqa markazi : </p>
+            <p>{t('contact')} </p>
             <img className={c.darkmodePhone} src={darkphoneIcon} alt="" />
             <img className={c.lightmodePhone} src={phoneIcon} alt="" />
             <span> +99871 209 99 44</span>
@@ -137,20 +145,34 @@ const Header = () => {
             <p>{changeLanguagevalue}</p>
             <img src={dawn} alt="" />
             <div className={c.langungeModal}>
-              <p onClick={(e) => changelanguage(e)}>RU</p>
-              <p onClick={(e) => changelanguage(e)}>O'Z</p>
+              <p
+                onClick={(e) => {
+                  i18n.changeLanguage('RU');
+                  changelanguage(e);
+                }}
+              >
+                RU
+              </p>
+              <p
+                onClick={(e) => {
+                  i18n.changeLanguage('UZ');
+                  changelanguage(e);
+                }}
+              >
+                UZ
+              </p>
             </div>
           </div>
         </div>
       </div>
       <Container>
         <nav>
-          <div className={c.navBar}>
+          <div className={`${c.navBar} ${scrollTopCheck ? c.fixed : ''}`}>
             <img className={c.navBarimg} src={texnomartLogo} alt="" />
             <div className={c.navSearchBar}>
               <div className={c.selectBar}>
                 <div className={c.optionBar}>
-                  <p className={c.selecttext}>{changeSelect}</p>
+                  <p className={c.selecttext}>{t(changeSelect)}</p>
                 </div>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -166,25 +188,25 @@ const Header = () => {
                 </svg>
                 <div className={c.optionlist}>
                   <div onClick={(e) => changeValue(e)}>
-                    <p>Barcha kategoriyalar</p>
+                    <p>{t('allCatagory')}</p>
                   </div>
                   <div onClick={(e) => changeValue(e)}>
-                    <p>Maishiy texnika</p>
+                    <p>{t('texnika')}</p>
                   </div>
                   <div onClick={(e) => changeValue(e)}>
-                    <p>Ofis jihoslari</p>
+                    <p>{t('ofis')}</p>
                   </div>
                   <div onClick={(e) => changeValue(e)}>
-                    <p>Oshxona uchun texnika</p>
+                    <p>{t('oshxona')}</p>
                   </div>
                   <div onClick={(e) => changeValue(e)}>
-                    <p>Uy uchun idishlar</p>
+                    <p>{t('forHome')}</p>
                   </div>
                   <div onClick={(e) => changeValue(e)}>
-                    <p>Avtomobil uchun mahsulotlar</p>
+                    <p>{t('forCar')}</p>
                   </div>
                   <div onClick={(e) => changeValue(e)}>
-                    <p>Iqlim texnikasi</p>
+                    <p>{t('iqlim')}</p>
                   </div>
                   <div onClick={(e) => changeValue(e)}>
                     <p>Televizor va telekartalar</p>
@@ -203,24 +225,24 @@ const Header = () => {
             <div className={c.NavNavigator}>
               <div>
                 <img src={orderIcon} alt="" />
-                <p>Buyurtma holati</p>
+                <p>{t('orderState')}</p>
               </div>
               <div onClick={loginOpenfunc}>
                 <img src={loginIcon} alt="" />
-                <p>Kirish</p>
+                <p>{t('login')}</p>
               </div>
               <div>
                 <img src={taqqoslaIcon} alt="" />
-                <p>Taqqoslash</p>
+                <p>{t('compare')}</p>
               </div>
               <div>
                 <img src={sevimliIcon} alt="" />
-                <p>Sevimlilar</p>
+                <p>{t('favorite')}</p>
               </div>
               <div className={c.shopOption} onClick={ShopOpenfunc}>
                 <img src={shopIcon} alt="" />
-                <span className={c.shopCount}>0</span>
-                <p>Savatcha</p>
+                <span className={c.shopCount}>{data.length}</span>
+                <p>{t('shop')}</p>
               </div>
             </div>
           </div>

@@ -3,12 +3,13 @@ import { useState, useEffect, useRef } from 'react';
 import shop from '../../assets/images/shop.svg';
 import { v4 as uuidv4 } from 'uuid';
 import navigator from '../../assets/images/left.svg';
-
+import { useDispatch } from 'react-redux';
+import { newItemAction } from '../../redux/reduser';
 const Accessories = ({ mainData }) => {
+  const dispatch = useDispatch();
   const categories = useRef();
   const [filterData, setFilterdata] = useState([]);
   const [imgCount, setImgCount] = useState(0);
-
   useEffect(() => {
     categories.current.scrollLeft = imgCount * 400;
   }, [imgCount]);
@@ -16,13 +17,12 @@ const Accessories = ({ mainData }) => {
   const scrollLeft = () => {
     if (imgCount > 0) setImgCount(imgCount - 1);
   };
-  console.log(imgCount);
   const scrollRigth = () => {
     setImgCount(imgCount + 1);
   };
 
   useEffect(() => {
-    let filter = mainData.filter((el) => el.productCategory === 'accessories');
+    let filter = mainData?.filter((el) => el.productCategory === 'accessories');
     setFilterdata(filter);
   }, [mainData]);
   return (
@@ -42,7 +42,10 @@ const Accessories = ({ mainData }) => {
               <div className={c.categoryDes}>
                 <p>{el.price} $</p>
                 <div className={c.btnGroup}>
-                  <button className={c.shopBtn}>
+                  <button
+                    onClick={() => dispatch(newItemAction(el))}
+                    className={c.shopBtn}
+                  >
                     <img src={shop} alt="" />
                     Savatchaga
                   </button>

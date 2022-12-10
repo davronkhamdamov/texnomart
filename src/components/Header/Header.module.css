@@ -497,3 +497,25 @@
         display: none;
     }
 }
+
+/* heder fixed */
+.fixed {
+    width: 100%;
+    padding: 20px;
+    position: fixed;
+    background: white;
+    z-index: 2;
+    top: 0;
+    left: 0;
+    animation: top 0.7s;
+}
+
+@keyframes top {
+    from {
+        transform: translateY(-50px);
+    }
+
+    to {
+        transform: translateY(0);
+    }
+}

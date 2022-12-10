@@ -1,53 +1,46 @@
-import c from './HeroSlider.module.css';
-import sliderImages from '../../json/slider.json';
-import { useState } from 'react';
-import { v4 as uuidv4 } from 'uuid';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import 'swiper/css';
+import 'swiper/css/effect-fade';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
 
-import { AiOutlineLeft, AiOutlineRight } from 'react-icons/ai';
+import { EffectFade, Navigation, Pagination } from 'swiper';
+import c from './HeroSlider.module.css';
 const HeroSlider = () => {
-  const [imgPosition, setImgPosition] = useState(0);
-  const incriment = () => {
-    imgPosition > 0
-      ? setImgPosition(imgPosition - 1)
-      : setImgPosition(sliderImages.length - 1);
-  };
-  const decriment = () => {
-    imgPosition < sliderImages.length - 1
-      ? setImgPosition(imgPosition + 1)
-      : setImgPosition(0);
-  };
   return (
-    <div className={c.sliderWapper}>
-      <button onClick={incriment} className={c.leftBtn}>
-        <AiOutlineLeft />
-      </button>
-      <img
-        className={`${c.sliderImg}`}
-        src={sliderImages[imgPosition].img}
-        alt=""
-      />
-      <button onClick={decriment} className={c.rigthBtn}>
-        <AiOutlineRight />
-      </button>
-      <div className={c.dots}>
-        {Array(6)
-          .fill('#')
-          .map((e, i) => {
-            return (
-              <div
-                key={uuidv4()}
-                onClick={() => {
-                  setImgPosition(i);
-                }}
-                style={{
-                  background: imgPosition === i ? 'transparent' : '#000',
-                }}
-                className={c.imgDots}
-              ></div>
-            );
-          })}
-      </div>
-    </div>
+    <>
+      <Swiper
+        effect={'fade'}
+        navigation={true}
+        pagination={{
+          clickable: true,
+        }}
+        modules={[EffectFade, Navigation, Pagination]}
+        className={c.Swiper}
+      >
+        <SwiperSlide>
+          <img
+            className={c.img}
+            src="https://texnomart.uz/_ipx/f_webp,q_100,s_1920x400/https://backend.texnomart.uz/uploads/slides/1829711920uz.webp"
+            alt=""
+          />
+        </SwiperSlide>
+        <SwiperSlide>
+          <img
+            className={c.img}
+            src="https://texnomart.uz/_ipx/f_webp,q_100,s_1920x400/https://backend.texnomart.uz/uploads/slides/2423251920uz.webp"
+            alt=""
+          />
+        </SwiperSlide>
+        <SwiperSlide>
+          <img
+            className={c.img}
+            src="https://texnomart.uz/_ipx/f_webp,q_100,s_1920x400/https://backend.texnomart.uz/uploads/slides/1483331920uz.webp"
+            alt=""
+          />
+        </SwiperSlide>
+      </Swiper>
+    </>
   );
 };
 
