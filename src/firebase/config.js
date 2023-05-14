@@ -9,8 +9,8 @@ const firebaseConfig = {
   projectId: "test-phone-d9b16",
   storageBucket: "test-phone-d9b16.appspot.com",
   messagingSenderId: "366636623479",
-  appId: "1:366636623479:web:18f7329bd46525ec614872",
-  measurementId: "G-897P0YCKKC"
+  appId: "1:366636623479:web:eb45625b54b9eff4614872",
+  measurementId: "G-K6ZZEN8TPX"
 };
 
 const beckend = firebase.initializeApp(firebaseConfig);
